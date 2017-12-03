@@ -1,0 +1,14 @@
+<div class = "tasklist">
+  {{#each tasks}}
+  <p>{{@index}}: <a href="task/{{this._id}}">{{this.text}}</a></p>
+    <li>{{this.text}} is completed at {{this.dateCompleted}}. {{this.text}} was created on {{this.dateCreated}}</li>
+    {{else}}
+      <P>No tasks have been completed!</P>
+      {{/each}}
+<br><br>
+      <form action="/deleteDone" method="POST" class="delete_form">
+        <input type="hidden" name="_id" value="{{this._id}}">
+        <input class="delete_button" type="submit" name="done" value="Delete All Completed Tasks">
+      </form>
+
+    </div>
